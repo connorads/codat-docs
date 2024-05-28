@@ -14,7 +14,7 @@ If you are considering using Codat's new webhook management endpoints, check tha
 | ...event log endpoints (e.g. `/rules/alerts`) <br/><br/> ![Static Badge](https://img.shields.io/badge/Development_work_required-yellow) | - Do not migrate until you have removed all calls to logs endpoints from your application logic <br/> - Review the [critical considerations](/using-the-api/webhooks/migration-guide-advanced#event-log-endpoints)                                                                                             |
 | ...`RuleId` in my application's existing logic  <br/><br/> ![Static Badge](https://img.shields.io/badge/Development_work_required-yellow)                                 | - Do not migrate until you have removed all application logic using the `RuleId` property <br/> - Review the [critical considerations](/using-the-api/webhooks/migration-guide-advanced#ruleid-in-existing-logic)                                                                                        |
 | ...only company-agnostic webhook functionality                                   | - Request to migrate to the new webhook service <br/>                                                                                                                                                                |
-| ...company-specific webhook functionality                                        | - Request to migrate to the new webhook service <br/> - Review the [additional considerations](/using-the-api/webhooks/migration-guide-advanced#company-specific-webhooks)                                                                                 |
+| ...company-specific webhook functionality ![Static Badge](https://img.shields.io/badge/Do_not_migrate-orange)  | - You will remain on the existing service <br/> - Review the [additional considerations](/using-the-api/webhooks/migration-guide-advanced#company-specific-webhooks)                                                                                 |
 | ...`X-Codat-ClientId` header to determine the source Codat instance of the event | - Request to migrate to the new webhook service <br/> - Review the [additional considerations](/using-the-api/webhooks/migration-guide-advanced#source-client-header)                 |
 | ...webhook auth header via the `/profile` endpoint                               | - Request to migrate to the new webhook service <br/> - Review the [additional considerations](/using-the-api/webhooks/migration-guide-advanced#webhook-auth-header) |
 | ...webhook auth header via the Portal                                            | - Request to migrate to the new webhook service <br/> - Review the [additional considerations](/using-the-api/webhooks/migration-guide-advanced#webhook-auth-header) |
@@ -72,9 +72,8 @@ Our new service has a robust [retry policy](/using-the-api/webhooks/troubleshoot
 
 ### Company-specific webhooks
 
-With the new service, you are able to see the `companyId` in the **Channels** field of the endpoint's detailed view or the message log. 
-
-![A fragment of the UI that displays the Channels column of the message log with the company ID value recorded in it](/img/use-the-api/0047-message-channels.png)
+If you are currently using company-specific webhooks we suggest you remain on the legacy service as the new service is limited to 50 webhook consumers/endpoints per client. 
+This means that if you want to migrate but use company-specific webhooks you will be limited to a maximum of 50 company-specific webhooks in use at any one time.
 
 ---
 
