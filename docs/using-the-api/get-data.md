@@ -1,6 +1,6 @@
 ---
-title: "Retrieve company data"
-sidebar_label: "Retrieve data"
+title: "Read data"
+sidebar_label: "Read data"
 description: "Learn how to manage companies, their connections, and their data via API"
 ---
 
